@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/passlock
+    username: postgres
+    password:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        ddl-auto: validate
+  flyway:
+    enabled: true
+    validate-on-migrate: true
