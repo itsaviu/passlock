@@ -1,14 +1,15 @@
 package com.uas.passlock.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.uas.passlock.models.dto.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -33,7 +34,8 @@ public class User {
 
     private String mobileNumber;
 
-    private Date createdAt;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Timestamp createdAt;
 
     public User(String username, String password, String emailId, String mobileNumber) {
         this.username = username;
@@ -41,6 +43,6 @@ public class User {
         this.emailId = emailId;
         this.mobileNumber = mobileNumber;
         this.verified = false;
-        this.createdAt = new Date();
+        this.createdAt = Timestamp.valueOf(LocalDateTime.now());
     }
 }

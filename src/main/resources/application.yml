@@ -15,3 +15,7 @@ spring:
   flyway:
     enabled: true
     validate-on-migrate: true
+
+passvault:
+  security:
+    salt: 9d472cb7-e7d4-4b3e-b406-f418b03a3877
